@@ -35,6 +35,11 @@ app.get('/', (req, res) => {
     res.sendFile('index.html', {
         root: path_1.default.resolve(__dirname, '..', '..', 'frontend/dist')
     });
+})
+    .get('/clockimg', (req, res) => {
+    res.sendFile('clock.png', {
+        root: path_1.default.resolve(__dirname, '..', '..', 'frontend/img')
+    });
 });
 app.listen(80, () => { console.log('Server ready'); });
 //# sourceMappingURL=index.js.map
