@@ -7,9 +7,114 @@
     <title>Document</title>
     <link rel="shortcut icon" href="/favicon.ico"/>
     <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        background : #2c2c2c;
+
+        }
+
+        .clock {
+            width: 80vh;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('/clockimg');
+            background-size: cover;
+
+            border-radius: 50%;
+            
+        }
+
+        .clock:before {
+            content: '';
+            position: absolute ;
+            width: 15px;
+            height: 15px;
+            background: #fff;
+            border-radius: 50%;
+            z-index: 1000;
+        }
+
+        .clock .hour,
+        .clock .min, 
+        .clock .sec {
+            position: absolute;
+        }
+
+        .clock .hour, .hr{
+            width: 230px;
+            height: 230px;
+        }
+
+        .clock .min .mn{
+            height: 360px;
+        }
+
+        .clock .sec, .sc{
+            width: 430px;
+            height: 430px;
+        }
+        .hr,.ms,.sc{
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .hr:before{
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 130px;
+            background: #dfdfdf;
+            z-index: 10;
+            border-radius: 50% 50% 50% 50% / 89% 89% 11% 11%;
+        }
+
+        .mn:before{
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 200px;
+            background: #d6d6d6;
+            z-index: 10;
+            border-radius: 50% 50% 50% 50% / 89% 89% 11% 11%;
+        }
+
+        .sc:before{
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 250px;
+            background: rgb(121, 15, 15);
+            z-index: 12;
+            border-radius: 6px 6px 0 0;
+        }
+        
+
     </style>
 </head>
 <body>
-    
+    <div class="clock">
+        <div class="hour">
+            <div class="hr" id="hr"></div>
+        </div>
+        <div class="min">
+            <div class="mn" id="mn"></div>
+        </div>
+        <div class="sec">
+            <div class="sc" id="sc"></div>
+        </div>
+    </div>
 </body>
 </html>
