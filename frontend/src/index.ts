@@ -8,9 +8,16 @@ setInterval(() => {
     let hh = day.getHours() * 30;
     let mm = day.getMinutes() * deg;
     let ss = day.getSeconds() * deg;
-    console.log(hr);
+
 
     hr.style.transform = `rotateZ(${(hh)+(mm/12)}deg)`;
     mn.style.transform = `rotateZ(${mm}deg)`;
     sc.style.transform = `rotateZ(${ss}deg)`;
 })
+
+setInterval(function(){
+    document.getElementById('body').style.backgroundImage = 'url(/background)'
+    document.getElementById('body').style.backgroundSize = 'cover'
+},1000)
+
+

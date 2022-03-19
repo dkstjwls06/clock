@@ -32,6 +32,16 @@ app.get('/', (req, res) => {
         root:path.resolve(__dirname,'..','..','frontend/img')
     })
 })
+let random = 0
+app.get('/background',(req,res)=>{
+    
+    random++;
+    console.log(random)
+    if(random>=5) random = 1
+    res.sendFile(`${random}.jpg`,{
+        root:path.resolve(__dirname,'..','..','frontend/img/background')
+    })
+})
 
 app.listen(80,()=>{console.log('Server ready')});
  

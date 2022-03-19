@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>시계 (가로화면 전용)</title>
     <link rel="shortcut icon" href="/favicon.ico"/>
     <style>
         *{
@@ -19,7 +19,7 @@
         align-items: center;
         min-height: 100vh;
         background : #2c2c2c;
-
+        
         }
 
         .clock {
@@ -30,7 +30,7 @@
             align-items: center;
             background: url('/clockimg');
             background-size: cover;
-
+            opacity: 0.6;
             border-radius: 50%;
             
         }
@@ -38,8 +38,8 @@
         .clock:before {
             content: '';
             position: absolute ;
-            width: 15px;
-            height: 15px;
+            width: 2vh;
+            height: 2vh;
             background: #fff;
             border-radius: 50%;
             z-index: 1000;
@@ -52,17 +52,17 @@
         }
 
         .clock .hour, .hr{
-            width: 230px;
-            height: 230px;
+            width: 40vh;
+            height: 40vh;
         }
 
         .clock .min .mn{
-            height: 360px;
+            height: 48vh;
         }
 
         .clock .sec, .sc{
-            width: 430px;
-            height: 430px;
+            width: 58vh;
+            height: 58vh;
         }
         .hr,.ms,.sc{
             display: flex;
@@ -74,8 +74,8 @@
         .hr:before{
             content: '';
             position: absolute;
-            width: 6px;
-            height: 130px;
+            width: 0.7vh;
+            height: 23vh;
             background: #dfdfdf;
             z-index: 10;
             border-radius: 50% 50% 50% 50% / 89% 89% 11% 11%;
@@ -84,8 +84,8 @@
         .mn:before{
             content: '';
             position: absolute;
-            width: 4px;
-            height: 200px;
+            width: 0.4vh;
+            height: 27vh;
             background: #d6d6d6;
             z-index: 10;
             border-radius: 50% 50% 50% 50% / 89% 89% 11% 11%;
@@ -94,17 +94,88 @@
         .sc:before{
             content: '';
             position: absolute;
-            width: 2px;
-            height: 250px;
+            width: 0.2vh;
+            height: 34vh;
             background: rgb(121, 15, 15);
             z-index: 12;
             border-radius: 6px 6px 0 0;
         }
         
-
+        .container{
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+        }
+        #present{
+            width: 100vw;
+            height: 80vh;
+        }
+        #prevAndNext{
+            width: 100vw;
+            height: 20vh;
+            display: flex;
+            flex-direction: row;
+        }
+        #now{
+            position: absolute;
+            width: 100vw;
+            height: 20vh;
+            margin: 35vh 0 25vh 0;
+            text-align: center;
+        }
+        .notnow{
+            width: 20vw;
+            text-align: center;
+            height: 20vh;
+        }
+        #margin{
+            width: 60vw;
+        }
+        .filter{
+            position: absolute;
+            opacity: 0.6;
+            background-color: #2c2c2c;
+            width: 100vw;
+            height: 100vh;
+        }
+        #now > div{
+            color: #fff;
+        }
+        #work{
+            height: 16vh;
+            width: 100vw;
+            font-size: 13vh;
+        }
+        #time{
+            height: 4vh;
+            width: 100vw;
+            font-size: 4vh
+        }
     </style>
 </head>
-<body>
+<body id="body">
+    <div class="filter"></div>
+    <div class="container">
+        <div id="present">
+            <div id="now">
+                <div id="work">일일일일</div>
+                <div id="time">시간시간남음</div>
+            </div>
+        </div>
+        <div id="prevAndNext">
+            <div class="notnow">
+                <div class="prework"></div>
+                <div class="pretime"></div>
+            </div>
+            <div id="margin"></div>
+            <div class="notnow">
+                <div class="postwork"></div>
+                <div class="posttime"></div>
+            </div>
+        </div>
+    </div>
     <div class="clock">
         <div class="hour">
             <div class="hr" id="hr"></div>
