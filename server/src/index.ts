@@ -43,7 +43,7 @@ app.get('/background',(req,res)=>{
         root:path.resolve(__dirname,'..','..','frontend/img/background')
     })
 })
-const weekendTime = [810,850,900,1020,1040,1200,1400,1600,1620,1800,2000,2230]
+const weekendTime = [810,850,900,1020,1040,1200,1400,1600,1620,1800,2000,2100,2120,2230]
 const weekendTimetable = [
     '아침식사',
     '인원점검',
@@ -56,6 +56,8 @@ const weekendTimetable = [
     '자습 T4',
     '저녁식사',
     '자습 T5',
+    '휴식',
+    '자습 T6',
     '생활관'
 ]
 const weekdaystime = [740,815,845,900,950,1000,1050,1100,1050,1200,1250,1350,1440,1450,1540,1550,1640,1700,1710,1750,1755,1835,1950,2110,2130,2140,2230]
@@ -108,10 +110,11 @@ app.post('/getWhatToDo',async (req,res)=>{
                     if(i==0){
                         res.json({work:weekdaysTimetable[i],prework:'생활관',start:`${weekdaystime[i]}` ,postwork:weekdaysTimetable[i+1],end:`${weekdaystime[i+1]}`})
                         return
-                    }else if(i == weekdaystime.length-2){
-                        res.json({work:weekdaysTimetable[i],prework:weekdaysTimetable[i-1],start:`${weekdaystime[i]}` ,postwork:weekdaysTimetable[i+1],end:`${weekdaystime[i+1]}`})
-                        return
                     }
+                    // else if(i == weekdaystime.length-2){
+                    //     res.json({work:weekdaysTimetable[i],prework:weekdaysTimetable[i-1],start:`${weekdaystime[i]}` ,postwork:weekdaysTimetable[i+1],end:`${weekdaystime[i+1]}`})
+                    //     return
+                    // }
                     res.json({work:weekdaysTimetable[i],prework:weekdaysTimetable[i-1],start:`${weekdaystime[i]}`,postwork:weekdaysTimetable[i+1],end:`${weekdaystime[i+1]}`})
                     return
                 }
@@ -131,10 +134,11 @@ app.post('/getWhatToDo',async (req,res)=>{
                     if(i==0) {
                         res.json({work:weekendTimetable[i],prework:'생활관',start:`${weekendTime[i]}` ,postwork:weekendTimetable[i+1],end:`${weekendTime[i+1]}`})
                         return
-                    }else if(i == weekendTime.length-2){
-                        res.json({work:weekendTimetable[i],prework:weekendTimetable[i-1],start:`${weekendTime[i]}` ,postwork:weekendTimetable[i+1],end:`${weekendTime[i+1]}`})
-                        return
                     }
+                    // else if(i == weekendTime.length-2){
+                    //     res.json({work:weekendTimetable[i],prework:weekendTimetable[i-1],start:`${weekendTime[i]}` ,postwork:weekendTimetable[i+1],end:`${weekendTime[i+1]}`})
+                    //     return
+                    // }
                     res.json({work:weekendTimetable[i],prework:weekendTimetable[i-1],start:`${weekendTime[i]}`,postwork:weekendTimetable[i+1],end:`${weekendTime[i+1]}`})
                     return
                 }

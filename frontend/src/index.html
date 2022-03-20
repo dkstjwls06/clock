@@ -26,8 +26,8 @@
         }
 
         .clock {
-            width: 90vh;
-            height: 90vh;
+            width: 85vh;
+            height: 85vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -87,7 +87,7 @@
         .mn:before{
             content: '';
             position: absolute;
-            width: 0.4vh;
+            width: 0.6vh;
             height: 31vh;
             background: #d6d6d6;
             z-index: 10;
@@ -111,7 +111,6 @@
             display: flex;
             flex-direction: column;
             z-index: 3;
-            opacity: 0.7;
         }
         #present{
             width: 100vw;
@@ -127,12 +126,12 @@
             position: absolute;
             width: 100vw;
             height: 20vh;
-            margin: 40vh 0 20vh 0;
+            margin: 40vh 0 10vh 0;
             text-align: center;
         }
         .notnow{
             width: 20vw;
-            text-align: center;
+            /* text-align: center; */
             height: 20vh;
         }
         #margin{
@@ -152,26 +151,44 @@
         #work{
             height: 16vh;
             width: 100vw;
-            font-size: 13vh;
+            padding-top: 2vh;
+            font-size: 10vh;
         }
         #time{
             height: 4vh;
             width: 100vw;
-            font-size: 4vh
+            font-size: 4vh;
+            font-weight: 200;
         }
         .prework, .postwork{
-            height: 15vh;
+            height: 8vh;
             width: 20vw;
-            padding: 5vh 0 0 0;
+            font-weight:500;
+            /* padding: 5vh 0 0 0; */
             font-size: 5vh;
         }
         .pretime, .posttime{
-            height: 5vh;
+            height: 6vh;
             width: 20vw;
-            font-size: 2.5vh;
+            font-size: 3vh;
+            font-weight: 100;
+        }
+        .prework, .pretime,.prev{
+            text-align: left;
+            padding-left: 1vw;
+        }
+        .postwork, .posttime,.next{
+            text-align: right;
+            padding-right: 1vw;
         }
         .notnow > div{
             color: #fff;
+        }
+        .prev, .next{
+            width: 20vw;
+            height: 6vh;
+            font-weight: 300;
+            font-size: 4vh;
         }
     </style>
 </head>
@@ -186,11 +203,13 @@
         </div>
         <div id="prevAndNext">
             <div class="notnow">
+                <div class="prev">Prev.</div>
                 <div class="prework" id="prework">이전일</div>
                 <div class="pretime" id="pretime">끝난시간</div>
             </div>
             <div id="margin"></div>
             <div class="notnow">
+                <div class="next">Next.</div>
                 <div class="postwork" id="postwork">다음일</div>
                 <div class="posttime" id="posttime">시작시간</div>
             </div>

@@ -88,7 +88,12 @@ setInterval(()=>{
         left.setMinutes(comparedate.getMinutes()-date.getMinutes())
         left.setSeconds(comparedate.getSeconds()-date.getSeconds())
         console.log(left)
-        time.innerHTML = `${left.getHours()}시간 ${left.getMinutes()}분 ${left.getSeconds()}초 남음`
+        let str = ''
+        if(left.getHours()!=0) str+=`${left.getHours()}시간 `
+        if(left.getMinutes()!=0) str+=`${left.getMinutes()}분 ` 
+        str+=`${left.getSeconds()}초 남음`
+
+        time.innerHTML = str
         /*
         JSON Data :
         {
