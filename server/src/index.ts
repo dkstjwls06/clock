@@ -43,7 +43,7 @@ app.get('/background',(req,res)=>{
         root:path.resolve(__dirname,'..','..','frontend/img/background')
     })
 })
-const weekendTime = [810,850,900,1020,1040,1200,1400,1600,1620,1800,2000,2100,2120,2230]
+const weekendTime = [810,850,900,1020,1040,1200,1400,1600,1620,1800,2000,2100,2120,2220]
 const weekendTimetable = [
     '아침식사',
     '인원점검',
